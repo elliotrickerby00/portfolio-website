@@ -1,6 +1,7 @@
 /* Reset and full-page setup */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  text-transform: lowercase; /* force lowercase everywhere */
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -14,19 +15,18 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200%;   /* make pattern repeat more */
-  height: 200%;  /* extra size for movement */
+  width: 200%;   
+  height: 200%;  
   background: repeating-linear-gradient(
     45deg,
     #ccc 0 4px,
     transparent 4px 12px
   );
-  opacity: 0.25;   /* more visible */
+  opacity: 0.25;  
   z-index: 1;
   animation: moveBackground 40s linear infinite;
 }
 
-/* Animate background */
 @keyframes moveBackground {
   0% { transform: translate(0, 0); }
   100% { transform: translate(-500px, -500px); }
@@ -46,7 +46,7 @@ body {
 
 /* Name styling */
 .landing-name {
-  font-size: 3rem;
+  font-size: 3.5rem; /* slightly larger */
   margin-bottom: 2rem;
   color: #222;
 }
@@ -55,7 +55,7 @@ body {
 .landing-nav a {
   text-decoration: none;
   margin: 0 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #222;
   font-size: 1.2rem;
 }
