@@ -1,27 +1,38 @@
+/* General body styles for all pages */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
 }
 
-header, footer {
+/* Header & navigation for regular pages */
+header {
   background-color: #222;
   color: #fff;
+  padding: 1rem 0;
   text-align: center;
-  padding: 1rem;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   margin: 0 1rem;
+  font-weight: bold;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
+/* Main content styling for regular pages */
 main {
   padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
+
+section {
+  margin-botto
