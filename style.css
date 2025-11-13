@@ -1,6 +1,4 @@
-/* ===============================
-   Global font and lowercase
-   =============================== */
+/* Global font and lowercase */
 body, h1, h2, h3, h4, h5, h6, p, a, section {
   font-family: 'Roboto Mono', monospace;
   text-transform: lowercase;
@@ -8,46 +6,18 @@ body, h1, h2, h3, h4, h5, h6, p, a, section {
   padding: 0;
 }
 
-/* ===============================
-   Full page setup
-   =============================== */
+/* Full page setup */
 body {
   height: 100vh;
   background-color: #fff;
   position: relative;
-  overflow: hidden; /* prevent scrollbars from background animation */
+  overflow: hidden;
 }
 
-/* ===============================
-   Inline SVG background
-   =============================== */
-.landing-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0; /* behind content */
-  pointer-events: none;
-
-  /* Simple float animation */
-  animation: floatBackground 40s linear infinite;
-  opacity: 0.25;
-}
-
-/* Animation for floating/rotation */
-@keyframes floatBackground {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  50%  { transform: translate(20px, 20px) rotate(1deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-/* ===============================
-   Landing container
-   =============================== */
+/* Landing container */
 .landing-container {
   position: relative;
-  z-index: 1; /* above SVG background */
+  z-index: 1; /* above tendrils */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,18 +26,14 @@ body {
   text-align: center;
 }
 
-/* ===============================
-   Name styling
-   =============================== */
+/* Name styling */
 .landing-name {
   font-size: 3.5rem;
   margin-bottom: 2rem;
   color: #222;
 }
 
-/* ===============================
-   Navigation links
-   =============================== */
+/* Navigation links */
 .landing-nav a {
   text-decoration: none;
   margin: 0 1.5rem;
@@ -78,4 +44,28 @@ body {
 
 .landing-nav a:hover {
   color: #555;
+}
+
+/* ===============================
+   Tendril background
+   =============================== */
+.tendril-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* behind content */
+  pointer-events: none;
+}
+
+/* Animate the tendrils growing from edges */
+.tendril-bg path {
+  stroke-dasharray: 1000; /* large enough to cover path length */
+  stroke-dashoffset: 1000;
+  animation: drawTendril 6s forwards;
+}
+
+@keyframes drawTendril {
+  to { stroke-dashoffset: 0; }
 }
