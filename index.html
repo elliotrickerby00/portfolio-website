@@ -13,12 +13,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Inline SVG as background -->
+  <!-- Tendril SVG background -->
   <svg class="landing-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-    <!-- Example squiggles; replace with your own paths -->
-    <path d="M50 150 C150 50, 250 250, 350 150" stroke="#ccc" stroke-width="3" fill="transparent"/>
-    <path d="M400 400 C500 300, 600 500, 700 400" stroke="#bbb" stroke-width="2" fill="transparent"/>
-    <path d="M100 500 C200 400, 300 600, 400 500" stroke="#aaa" stroke-width="2.5" fill="transparent"/>
+    <!-- Left tendrils -->
+    <path class="tendril" d="M0,50 C150,80 150,200 400,300" stroke="#aaa" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M0,150 C200,100 250,250 400,350" stroke="#bbb" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M0,300 C100,400 300,200 400,300" stroke="#ccc" stroke-width="2" fill="transparent"/>
+
+    <!-- Right tendrils -->
+    <path class="tendril" d="M800,50 C650,80 650,200 400,300" stroke="#bbb" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M800,150 C600,100 550,250 400,350" stroke="#aaa" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M800,300 C700,400 500,200 400,300" stroke="#ccc" stroke-width="2" fill="transparent"/>
+
+    <!-- Top tendrils -->
+    <path class="tendril" d="M100,0 C150,150 650,150 400,300" stroke="#bbb" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M300,0 C250,200 550,200 400,300" stroke="#aaa" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M500,0 C600,100 600,200 400,300" stroke="#ccc" stroke-width="2" fill="transparent"/>
+
+    <!-- Bottom tendrils -->
+    <path class="tendril" d="M100,600 C150,450 650,450 400,300" stroke="#ccc" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M300,600 C250,400 550,400 400,300" stroke="#bbb" stroke-width="2" fill="transparent"/>
+    <path class="tendril" d="M500,600 C600,500 600,400 400,300" stroke="#aaa" stroke-width="2" fill="transparent"/>
   </svg>
 
   <main class="landing-container">
@@ -28,6 +43,3 @@
       <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </main>
-</body>
-</html>
