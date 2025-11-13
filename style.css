@@ -62,7 +62,7 @@ body {
   stroke-dasharray: 1000; /* overestimate length */
   stroke-dashoffset: 1000;
   animation: drawTendril 7s forwards;
-  stroke: #aaa;
+  stroke: #eee;
 }
 
 /* Staggered animation delays for organic effect */
