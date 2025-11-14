@@ -31,6 +31,18 @@ body {
   font-size: 3.5rem;
   margin-bottom: 2rem;
   color: #222;
+  text-align: center;
+}
+
+/* Per-letter hover bulge */
+.hover-bulge {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: pointer; /* optional */
+}
+
+.hover-bulge:hover {
+  transform: scale(1.3); /* bulge effect */
 }
 
 /* Navigation links */
