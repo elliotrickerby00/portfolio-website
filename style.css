@@ -48,7 +48,7 @@ body {
 /* Dedicated space between first and last name */
 .hover-space {
   display: inline-block;
-  width: 0.5em; /* adjust for spacing you want */
+  width: 1.2rem; /* adjust for spacing you want */
 }
 
 /* Navigation links */
