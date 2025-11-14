@@ -28,7 +28,7 @@ body {
 
 /* Name styling */
 .landing-name {
-  font-size: 3.5rem;
+  font-size: 0rem;
   margin-bottom: 2rem;
   color: #222;
   text-align: center;
@@ -37,8 +37,9 @@ body {
 /* Per-letter hover bulge */
 .hover-bulge {
   display: inline-block;
+  font-size: 3.5rem;
   transition: transform 0.3s ease;
-  cursor: pointer; /* optional */
+  cursor: default; /* optional */
 }
 
 .hover-bulge:hover {
