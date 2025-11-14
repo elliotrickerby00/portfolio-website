@@ -87,7 +87,7 @@ body {
 .landing-nav a {
   opacity: 0;
   animation: landingNavFade 1s ease forwards;
-  animation-delay: 1s; /* matches the tendril animation */
+  animation-delay: 2.5s; /* matches the tendril animation */
 }
 
 /* Animation for the nav buttons */
