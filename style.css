@@ -34,16 +34,21 @@ body {
   text-align: center;
 }
 
-/* Per-letter hover bulge */
 .hover-bulge {
   display: inline-block;
   font-size: 3.5rem;
   transition: transform 0.3s ease;
-  cursor: default; /* optional */
+  cursor: default;
 }
 
 .hover-bulge:hover {
-  transform: scale(1.3); /* bulge effect */
+  transform: scale(1.3);
+}
+
+/* Dedicated space between first and last name */
+.hover-space {
+  display: inline-block;
+  width: 0.5em; /* adjust for spacing you want */
 }
 
 /* Navigation links */
