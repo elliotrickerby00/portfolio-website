@@ -32,7 +32,12 @@ body {
   margin-bottom: 2rem;
   color: #222;
   text-align: center;
-  transition: top 0.8s ease; /* slide vertically */
+
+  /* Smooth vertical sliding */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.8s ease;
 }
 
 .hover-bulge {
@@ -54,9 +59,10 @@ body {
 
 /* Navigation links */
 .landing-nav {
-  display: flex;
-  justify-content: center;
-  transition: bottom 0.8s ease; /* slide vertically */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.8s ease;
 }
 
 .landing-nav a {
@@ -90,6 +96,15 @@ body {
 
 .landing-nav a:hover::after {
   width: 100%;
+}
+
+/* Fixed positions for header/footer when About is shown */
+.landing-name.fixed {
+  top: 2rem;
+}
+
+.landing-nav.fixed {
+  bottom: 2rem;
 }
 
 /* Tendril background */
@@ -129,7 +144,7 @@ body {
   to { stroke-dashoffset: 0; }
 }
 
-/* Animation for the nav buttons */
+/* Fade in the nav buttons */
 @keyframes landingNavFade {
   from {
     opacity: 0;
@@ -141,29 +156,12 @@ body {
   }
 }
 
-/* --- Fixed positions after clicking About --- */
-.landing-name.fixed {
-  position: fixed;
-  top: 2rem;      /* final position at top */
-  left: 50%;      /* keep horizontally centered */
-  transform: translateX(-50%); /* center horizontally only */
-}
-
-.landing-nav.fixed {
-  position: fixed;
-  bottom: 2rem;   /* final position at bottom */
-  left: 50%;      /* center horizontally */
-  transform: translateX(-50%); /* center horizontally only */
-}
-
 /* About section */
 .about-section {
-  opacity: 0;              /* initially hidden */
-  pointer-events: none;    /* prevent interaction when hidden */
-  transition: opacity 0.8s ease;
+  opacity: 0;
+  pointer-events: none;
   text-align: center;
   max-width: 600px;
-  margin: auto;
-  font-size: 1.1rem;
-  padding: 2rem 1rem;
+  margin: 0 auto;
+  transition: opacity 0.8s ease;
 }
