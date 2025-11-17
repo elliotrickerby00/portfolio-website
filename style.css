@@ -24,6 +24,7 @@ body {
   align-items: center;
   height: 100vh;
   text-align: center;
+  transition: transform 0.8s ease; /* for sliding name/nav */
 }
 
 /* Name styling */
@@ -32,6 +33,8 @@ body {
   margin-bottom: 2rem;
   color: #222;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hover-bulge {
@@ -52,6 +55,11 @@ body {
 }
 
 /* Navigation links */
+.landing-nav {
+  position: relative;
+  z-index: 2;
+}
+
 .landing-nav a {
   opacity: 0;
   animation: landingNavFade 1s ease forwards;
@@ -62,6 +70,7 @@ body {
   font-weight: 700;
   color: #222;
   font-size: 1.2rem;
+  transition: transform 0.8s ease; /* for sliding down */
 }
 
 /* Hover color change */
@@ -132,4 +141,35 @@ body {
     opacity: 1;
     transform: translateY(0px);
   }
+}
+
+/* About section */
+.about-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  color: #222;
+  transition: opacity 0.8s ease;
+}
+
+/* Optional: make header/footer fixed after transition */
+.landing-name.fixed {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.landing-nav.fixed {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
