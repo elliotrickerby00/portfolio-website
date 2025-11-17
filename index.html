@@ -12,8 +12,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Tendril background -->
   <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
-    <!-- 12 tendrils -->
+    <!-- 12 tendrils (replace paths with your own) -->
     <path class="tendril" d="M0,100 C150,80 200,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
     <path class="tendril" d="M0,300 C120,250 180,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
     <path class="tendril" d="M0,500 C160,450 240,550 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
@@ -28,7 +29,7 @@
     <path class="tendril" d="M700,600 C650,400 500,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
   </svg>
 
-  <!-- Single landing container -->
+  <!-- Landing content -->
   <div class="landing-container">
     <h1 class="landing-name">
       <span class="hover-bulge">e</span>
@@ -62,28 +63,29 @@
       I explore the intersection of creativity, culture, and mental health in the fashion industry.
     </p>
   </div>
-<script>
-  // Wait for the DOM to fully load
-  document.addEventListener("DOMContentLoaded", () => {
-    const aboutLink = document.querySelector('a[href="about.html"]');
-    const landingName = document.querySelector('.landing-name');
-    const landingNav = document.querySelector('.landing-nav');
+
+  <!-- JS -->
+  <script>
+    const nameEl = document.querySelector('.landing-name');
+    const navEl = document.querySelector('.landing-nav');
     const aboutSection = document.getElementById('aboutSection');
+    const aboutLink = document.querySelector('.landing-nav a[href="about.html"]');
 
-    aboutLink.addEventListener('click', (e) => {
-      e.preventDefault(); // prevent page reload
+    function showAbout(e) {
+      e.preventDefault(); // prevent page navigation
 
-      // Slide the header up
-      landingName.classList.add('fixed');
+      // Trigger vertical slide for header and footer
+      nameEl.classList.add('fixed');
+      navEl.classList.add('fixed');
 
-      // Slide nav down
-      landingNav.classList.add('fixed');
+      // Fade in the About section after slide
+      setTimeout(() => {
+        aboutSection.style.opacity = '1';
+        aboutSection.style.pointerEvents = 'auto';
+      }, 800); // matches CSS transition duration
+    }
 
-      // Fade in About section
-      aboutSection.style.opacity = '1';
-      aboutSection.style.pointerEvents = 'auto';
-    });
-  });
-</script>
+    aboutLink.addEventListener('click', showAbout);
+  </script>
 </body>
 </html>
