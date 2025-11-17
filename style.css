@@ -159,6 +159,43 @@ body {
   transition: opacity 0.8s ease;
 }
 
+/* Animation for the nav buttons */
+@keyframes landingNavFade {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* --- Slide Header & Footer smoothly --- */
+.landing-name {
+  transition: top 0.8s ease, transform 0.8s ease;
+}
+
+.landing-nav {
+  transition: bottom 0.8s ease, transform 0.8s ease;
+}
+
+/* Fixed positions after animation */
+.landing-name.fixed {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.landing-nav.fixed {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
 /* Optional: make header/footer fixed after transition */
 .landing-name.fixed {
   position: fixed;
