@@ -66,7 +66,7 @@ body {
 --------------------------------*/
 .landing-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   transition: bottom 0.8s ease;
 }
 
