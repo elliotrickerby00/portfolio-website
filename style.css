@@ -48,6 +48,7 @@ body {
   display: inline-block;
   transition: transform 0.3s ease;
   cursor: default;
+  letter-spacing: 0.05em; 
 }
 
 .hover-bulge:hover {
