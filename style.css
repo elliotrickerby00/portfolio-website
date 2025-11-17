@@ -2,8 +2,8 @@
    Global font and lowercase
 --------------------------------*/
 body, h1, h2, h3, h4, h5, h6, p, a, section {
-  font-family: 'Roboto Mono', monospace;
-  text-transform: lowercase;
+  font-family: 'Roboto Mono', monospace; /* monospace font for all text */
+  text-transform: lowercase;            /* lowercase for consistency */
   margin: 0;
   padding: 0;
 }
@@ -12,84 +12,85 @@ body, h1, h2, h3, h4, h5, h6, p, a, section {
    Full page setup
 --------------------------------*/
 body {
-  height: 100vh;
-  background-color: #fff;
+  height: 100vh;           /* full viewport height */
+  background-color: #fff;  /* white background */
   position: relative;
   overflow: hidden;
 }
-/* Landing container (flex layout) */
+
+/* -------------------------------
+   Landing container (flex layout)
+--------------------------------*/
 .landing-container {
-  position: relative;
-  z-index: 1; /* above tendrils */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;  /* instead of center */
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  padding-top: 20vh; /* push title slightly down, simulates previous spacing */
+  position: relative;          /* relative for internal positioning */
+  z-index: 1;                  /* above tendrils */
+  display: flex;               /* flex layout for vertical stacking */
+  flex-direction: column;      /* stack name and nav vertically */
+  justify-content: flex-start; /* align content from top of container */
+  align-items: center;         /* horizontally center content */
+  height: 100vh;               /* full viewport height */
+  text-align: center;          /* center text inside container */
+  padding-top: 15vh;           /* initial vertical offset for name+nav */
 }
 
 /* -------------------------------
    Name styling
 --------------------------------*/
 .landing-name {
-  position: absolute;
-  top: 45%;  /* initial vertical center */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0; /* letters handled individually */
-  transition: top 1s ease; /* smooth vertical slide */
-  z-index: 2;
+  position: relative;         /* relative so it stays in container flow */
+  font-size: 0;               /* individual letters handled via .hover-bulge */
+  margin-bottom: 2rem;        /* spacing below name to nav buttons */
+  z-index: 2;                 /* above other elements */
+  transition: top 1s ease;    /* smooth vertical slide when 'fixed' added */
 }
 
 /* Per-letter hover bulge */
 .hover-bulge {
   display: inline-block;
   font-size: 3.5rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* hover effect smooth scaling */
   cursor: default;
 }
 
 .hover-bulge:hover {
-  transform: scale(1.3);
+  transform: scale(1.3);       /* slightly enlarge on hover */
 }
 
 /* Dedicated space between first and last name */
 .hover-space {
   display: inline-block;
-  width: 1.3rem;
+  width: 1.3rem;               /* spacing between first and last name */
 }
 
 /* -------------------------------
    Navigation links
 --------------------------------*/
 .landing-nav {
-  position: absolute;
-  bottom: 45%; /* initial vertical position */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 2.5rem; /* spacing between buttons */
-  transition: bottom 1s ease; /* smooth vertical slide */
-  z-index: 2;
+  position: relative;          /* relative so it stays in container flow */
+  display: flex;               /* flex layout for horizontal buttons */
+  gap: 2.5rem;                 /* spacing between buttons */
+  z-index: 2;                  /* above other elements */
+  transition: bottom 1s ease;  /* smooth vertical slide when 'fixed' added */
 }
 
+/* Individual nav links */
 .landing-nav a {
   opacity: 0;
-  animation: landingNavFade 1s ease forwards;
-  animation-delay: 2.3s; /* matches tendril animation */
-  position: relative;     
+  animation: landingNavFade 1s ease forwards; /* fade-in animation */
+  animation-delay: 2.3s;                     /* matches tendril animation */
+  position: relative;
   text-decoration: none;
   font-weight: 700;
   color: #222;
   font-size: 1.2rem;
 }
 
+/* Hover color change */
 .landing-nav a:hover {
   color: #555;
 }
 
+/* Underline hover effect */
 .landing-nav a::after {
   content: '';
   position: absolute;
@@ -106,15 +107,20 @@ body {
 }
 
 /* -------------------------------
-   Fixed positions for About view
+   Fixed positions for About view (animated slide)
 --------------------------------*/
 .landing-name.fixed {
-  top: 20px; /* final header position */
-  transform: translateX(-50%); /* keep horizontal centering */
+  position: absolute;         /* absolute for header position */
+  top: 20px;                  /* final header position */
+  left: 50%;                  /* horizontal center */
+  transform: translateX(-50%);
 }
 
 .landing-nav.fixed {
-  bottom: 20px; /* final footer position */
+  position: absolute;         /* absolute for footer position */
+  bottom: 20px;               /* final footer position */
+  left: 50%;                  /* horizontal center */
+  transform: translateX(-50%);
 }
 
 /* -------------------------------
