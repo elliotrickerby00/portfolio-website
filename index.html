@@ -14,22 +14,22 @@
 <body>
   <!-- Tendril background -->
   <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
-    <!-- 12 tendrils (replace paths with your own) -->
-    <path class="tendril" d="M0,100 C150,80 200,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M0,300 C120,250 180,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M0,500 C160,450 240,550 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M800,100 C650,120 600,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M800,300 C680,350 620,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M800,500 C640,500 560,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M100,0 C200,150 600,150 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M400,0 C350,100 450,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M700,0 C650,200 500,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M100,600 C200,450 600,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M400,600 C350,500 450,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril" d="M700,600 C650,400 500,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <!-- 12 tendrils -->
+    <path class="tendril t1" d="M0,100 C150,80 200,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t2" d="M0,300 C120,250 180,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t3" d="M0,500 C160,450 240,550 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t4" d="M800,100 C650,120 600,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t5" d="M800,300 C680,350 620,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t6" d="M800,500 C640,500 560,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t7" d="M100,0 C200,150 600,150 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t8" d="M400,0 C350,100 450,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t9" d="M700,0 C650,200 500,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t10" d="M100,600 C200,450 600,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t11" d="M400,600 C350,500 450,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t12" d="M700,600 C650,400 500,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
   </svg>
 
-  <!-- Landing content -->
+  <!-- Landing container -->
   <div class="landing-container">
     <h1 class="landing-name">
       <span class="hover-bulge">e</span>
@@ -50,42 +50,40 @@
     </h1>
 
     <nav class="landing-nav">
-      <a href="about.html">About</a>
+      <a href="#" id="aboutLink">About</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 
-  <!-- About section -->
+  <!-- About section (outside landing container) -->
   <div class="about-section" id="aboutSection">
     <p>
-      Welcome! I'm Elliot Rickerby, a freelance researcher and consultant in fashion and cultural insights. 
+      Welcome! I'm Elliot Rickerby, a freelance researcher and consultant in fashion and cultural insights.
       I explore the intersection of creativity, culture, and mental health in the fashion industry.
     </p>
   </div>
 
-  <!-- JS -->
+  <!-- JavaScript -->
   <script>
-    const nameEl = document.querySelector('.landing-name');
-    const navEl = document.querySelector('.landing-nav');
+    const aboutLink = document.getElementById('aboutLink');
     const aboutSection = document.getElementById('aboutSection');
-    const aboutLink = document.querySelector('.landing-nav a[href="about.html"]');
+    const landingName = document.querySelector('.landing-name');
+    const landingNav = document.querySelector('.landing-nav');
 
-    function showAbout(e) {
-      e.preventDefault(); // prevent page navigation
+    aboutLink.addEventListener('click', (e) => {
+      e.preventDefault();
 
-      // Trigger vertical slide for header and footer
-      nameEl.classList.add('fixed');
-      navEl.classList.add('fixed');
+      // Slide header and footer
+      landingName.classList.add('fixed');
+      landingNav.classList.add('fixed');
 
-      // Fade in the About section after slide
+      // Fade in about section after header/footer start sliding
       setTimeout(() => {
-        aboutSection.style.opacity = '1';
+        aboutSection.style.opacity = 1;
         aboutSection.style.pointerEvents = 'auto';
-      }, 800); // matches CSS transition duration
-    }
-
-    aboutLink.addEventListener('click', showAbout);
+      }, 400); // match transition timing with CSS
+    });
   </script>
 </body>
 </html>
