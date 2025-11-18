@@ -71,6 +71,7 @@
     const landingName = document.getElementById('landingName');
     const landingNav = document.getElementById('landingNav');
     const aboutSection = document.getElementById('aboutSection');
+    const collapseBtn = document.getElementById('collapseBtn');
 
     aboutBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -79,6 +80,15 @@
       landingNav.classList.add('fixed');
       aboutSection.classList.add('active');
     });
+      
+   // Collapse abt section
+    collapseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    landingName.classList.remove('fixed');
+    landingNav.classList.remove('fixed');
+    aboutSection.classList.remove('active');
+    collapseBtn.classList.remove('active'); // hide collapse button
+  });
   </script>
 </body>
 </html>
