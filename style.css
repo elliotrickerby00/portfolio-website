@@ -189,11 +189,13 @@ body {
 }
 
 .tendril-bg path {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 2; 
   stroke-linecap: round;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: drawTendril 7s forwards;
-  stroke: #eee;
 }
 
 .t1 { animation-delay: 0s; }
