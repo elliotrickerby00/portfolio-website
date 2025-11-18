@@ -1,82 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elliot Rickerby</title>
+  <meta name="description" content="Elliot Rickerby — freelance researcher and consultant in fashion and cultural insights. Exploring creativity, culture and mental health in fashion." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <!-- Font (cleaned spec, display=swap for better rendering) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Tendril Background -->
-  <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
-    <path class="tendril t1" d="M0,100 C150,80 200,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t2" d="M0,300 C120,250 180,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t3" d="M0,500 C160,450 240,550 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t4" d="M800,100 C650,120 600,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t5" d="M800,300 C680,350 620,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t6" d="M800,500 C640,500 560,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t7" d="M100,0 C200,150 600,150 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t8" d="M400,0 C350,100 450,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t9" d="M700,0 C650,200 500,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t10" d="M100,600 C200,450 600,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t11" d="M400,600 C350,500 450,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-    <path class="tendril t12" d="M700,600 C650,400 500,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Decorative tendril background (aria-hidden) -->
+  <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <!-- removed inline stroke attributes (styled in CSS) -->
+    <path class="tendril t1" d="M0,100 C150,80 200,200 400,300" fill="none" />
+    <path class="tendril t2" d="M0,300 C120,250 180,400 400,300" fill="none" />
+    <path class="tendril t3" d="M0,500 C160,450 240,550 400,300" fill="none" />
+    <path class="tendril t4" d="M800,100 C650,120 600,200 400,300" fill="none" />
+    <path class="tendril t5" d="M800,300 C680,350 620,400 400,300" fill="none" />
+    <path class="tendril t6" d="M800,500 C640,500 560,450 400,300" fill="none" />
+    <path class="tendril t7" d="M100,0 C200,150 600,150 400,300" fill="none" />
+    <path class="tendril t8" d="M400,0 C350,100 450,250 400,300" fill="none" />
+    <path class="tendril t9" d="M700,0 C650,200 500,250 400,300" fill="none" />
+    <path class="tendril t10" d="M100,600 C200,450 600,450 400,300" fill="none" />
+    <path class="tendril t11" d="M400,600 C350,500 450,350 400,300" fill="none" />
+    <path class="tendril t12" d="M700,600 C650,400 500,350 400,300" fill="none" />
   </svg>
 
-  <!-- Landing Container -->
-  <div class="landing-container">
-    <h1 class="landing-name" id="landingName">
-      <span class="hover-bulge">e</span>
-      <span class="hover-bulge">l</span>
-      <span class="hover-bulge">l</span>
-      <span class="hover-bulge">i</span>
-      <span class="hover-bulge">o</span>
-      <span class="hover-bulge">t</span>
-      <span class="hover-space"></span>
-      <span class="hover-bulge">r</span>
-      <span class="hover-bulge">i</span>
-      <span class="hover-bulge">c</span>
-      <span class="hover-bulge">k</span>
-      <span class="hover-bulge">e</span>
-      <span class="hover-bulge">r</span>
-      <span class="hover-bulge">b</span>
-      <span class="hover-bulge">y</span>
-    </h1>
+  <main id="main">
+    <!-- Landing Container -->
+    <div class="landing-container">
+      <h1 class="landing-name" id="landingName" aria-label="Elliot Rickerby">
+        <span class="hover-bulge">e</span>
+        <span class="hover-bulge">l</span>
+        <span class="hover-bulge">l</span>
+        <span class="hover-bulge">i</span>
+        <span class="hover-bulge">o</span>
+        <span class="hover-bulge">t</span>
+        <span class="hover-space" aria-hidden="true"></span>
+        <span class="hover-bulge">r</span>
+        <span class="hover-bulge">i</span>
+        <span class="hover-bulge">c</span>
+        <span class="hover-bulge">k</span>
+        <span class="hover-bulge">e</span>
+        <span class="hover-bulge">r</span>
+        <span class="hover-bulge">b</span>
+        <span class="hover-bulge">y</span>
+      </h1>
 
-    <nav class="landing-nav" id="landingNav">
-      <a href="#" id="aboutBtn">About</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+      <nav class="landing-nav" id="landingNav" aria-label="Primary">
+        <ul>
+          <li>
+            <!-- About is a control that toggles UI state so a button is more appropriate than an anchor -->
+            <button id="aboutBtn" aria-controls="aboutSection" aria-expanded="false">About</button>
+          </li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
 
-  <!-- About Section -->
-  <div class="about-section" id="aboutSection">
-    <p>
-      Welcome! I'm Elliot Rickerby, a freelance researcher and consultant in fashion and cultural insights.
-      I explore the intersection of creativity, culture, and mental health in the fashion industry.
-    </p>
-  </div>
+    <!-- About Section: visible to users without JS via <noscript> fallback -->
+    <section class="about-section" id="aboutSection" role="region" aria-labelledby="aboutHeading" aria-hidden="true" tabindex="-1">
+      <h2 id="aboutHeading" class="visually-hidden">About Elliot Rickerby</h2>
+      <p>
+        Welcome! I'm Elliot Rickerby, a freelance researcher and consultant in fashion and cultural insights.
+        I explore the intersection of creativity, culture, and mental health in the fashion industry.
+      </p>
+      <p>
+        <button id="closeAboutBtn">Close</button>
+      </p>
+    </section>
+  </main>
 
-  <!-- JavaScript -->
+  <!-- noscript fallback: show the about section when JS is disabled -->
+  <noscript>
+    <style>
+      .about-section { opacity: 1 !important; pointer-events: auto !important; position: static !important; transform: none !important; max-width: 600px; margin: 1.5rem auto; }
+      .landing-name, .landing-nav { position: static; transform: none; margin-bottom: 1rem; }
+    </style>
+  </noscript>
+
+  <!-- JavaScript: tidy, accessible toggling and keyboard support -->
   <script>
-    const aboutBtn = document.getElementById('aboutBtn');
-    const landingName = document.getElementById('landingName');
-    const landingNav = document.getElementById('landingNav');
-    const aboutSection = document.getElementById('aboutSection');
+    (function () {
+      const aboutBtn = document.getElementById('aboutBtn');
+      const closeBtn = document.getElementById('closeAboutBtn');
+      const landingName = document.getElementById('landingName');
+      const landingNav = document.getElementById('landingNav');
+      const aboutSection = document.getElementById('aboutSection');
 
-    aboutBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+      let isOpen = false;
+      function openAbout() {
+        if (isOpen) return;
+        isOpen = true;
+        landingName.classList.add('fixed');
+        landingNav.classList.add('fixed');
+        aboutSection.classList.add('active');
+        aboutSection.setAttribute('aria-hidden', 'false');
+        aboutBtn.setAttribute('aria-expanded', 'true');
+        // Move focus into the about region (for screen reader/keyboard users)
+        aboutSection.focus({ preventScroll: true });
+        document.addEventListener('keydown', onKeydown);
+      }
 
-      landingName.classList.add('fixed');
-      landingNav.classList.add('fixed');
-      aboutSection.classList.add('active');
-    });
+      function closeAbout() {
+        if (!isOpen) return;
+        isOpen = false;
+        landingName.classList.remove('fixed');
+        landingNav.classList.remove('fixed');
+        aboutSection.classList.remove('active');
+        aboutSection.setAttribute('aria-hidden', 'true');
+        aboutBtn.setAttribute('aria-expanded', 'false');
+        // Return focus to the toggling control
+        aboutBtn.focus({ preventScroll: true });
+        document.removeEventListener('keydown', onKeydown);
+      }
+
+      function toggleAbout() {
+        if (isOpen) closeAbout();
+        else openAbout();
+      }
+
+      function onKeydown(e) {
+        if (e.key === 'Escape') {
+          closeAbout();
+        }
+      }
+
+      aboutBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleAbout();
+      });
+
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeAbout();
+      });
+
+      // Allow Enter/Space on the button (button elements already do this, but keep graceful handling)
+      aboutBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleAbout();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
