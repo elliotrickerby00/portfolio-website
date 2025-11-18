@@ -71,20 +71,23 @@ body {
   transform: translateX(-50%);
   display: flex;
   gap: 2.5rem; /* spacing between buttons */
-  transition: top 1s ease, bottom 1s ease /* smooth vertical slide */
+  transition: top 1s ease, bottom 1s ease; /* fixed missing semicolon */
   z-index: 2;
 }
 
 .landing-nav a {
   display: inline-block;
-   opacity: 0;
-  animation: landingNavFade 1s ease 2.3s forwards;
+  opacity: 0;
+  animation-name: landingNavFade;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 2.3s;
   position: relative;     
   text-decoration: none;
   font-weight: 700;
   color: #222;
   font-size: 1.2rem;
-   position: relative;
 }
 
 .landing-nav a:hover {
@@ -116,7 +119,7 @@ body {
 
 .landing-nav.fixed {
   top: calc(100% - 40px);
-   bottom: auto;
+  bottom: auto;
 }
 
 /* -------------------------------
