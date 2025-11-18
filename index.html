@@ -4,25 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elliot Rickerby</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- Tendril background -->
-  <svg class="tendril-bg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-    <path class="t1" d="M50,200 C200,100 400,300 600,150"></path>
-    <path class="t2" d="M100,400 C300,300 500,500 700,350"></path>
-    <path class="t3" d="M200,700 C400,600 650,800 850,650"></path>
+  <!-- Tendril Background -->
+  <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
+    <path class="tendril t1" d="M0,100 C150,80 200,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t2" d="M0,300 C120,250 180,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t3" d="M0,500 C160,450 240,550 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t4" d="M800,100 C650,120 600,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t5" d="M800,300 C680,350 620,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t6" d="M800,500 C640,500 560,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t7" d="M100,0 C200,150 600,150 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t8" d="M400,0 C350,100 450,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t9" d="M700,0 C650,200 500,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t10" d="M100,600 C200,450 600,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t11" d="M400,600 C350,500 450,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+    <path class="tendril t12" d="M700,600 C650,400 500,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
   </svg>
 
-  <!-- Main container -->
+  <!-- Landing Container -->
   <div class="landing-container">
-
-    <!-- Name (click animation target) -->
     <h1 class="landing-name" id="landingName">
       <span class="hover-bulge">e</span>
       <span class="hover-bulge">l</span>
@@ -41,50 +48,35 @@
       <span class="hover-bulge">y</span>
     </h1>
 
-    <!-- Navigation -->
     <nav class="landing-nav" id="landingNav">
-      <a href="#" id="aboutBtn">about</a>
-      <a href="#">work</a>
-      <a href="#">contact</a>
+      <a href="#" id="aboutBtn">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 
-  <!-- About section -->
+  <!-- About Section -->
   <div class="about-section" id="aboutSection">
     <p>
-      I am a freelance researcher and consultant specialising in fashion and cultural insights...
+      Welcome! I'm Elliot Rickerby, a freelance researcher and consultant in fashion and cultural insights.
+      I explore the intersection of creativity, culture, and mental health in the fashion industry.
     </p>
   </div>
 
-  <!-- Collapse button -->
-  <a href="#" id="collapseBtn" class="collapse-btn">close</a>
-
-  <!-- Script -->
+  <!-- JavaScript -->
   <script>
     const aboutBtn = document.getElementById('aboutBtn');
     const landingName = document.getElementById('landingName');
     const landingNav = document.getElementById('landingNav');
     const aboutSection = document.getElementById('aboutSection');
-    const collapseBtn = document.getElementById('collapseBtn');
 
-    // Open
     aboutBtn.addEventListener('click', (e) => {
       e.preventDefault();
+
       landingName.classList.add('fixed');
       landingNav.classList.add('fixed');
       aboutSection.classList.add('active');
-      collapseBtn.classList.add('active');
-    });
-
-    // Close
-    collapseBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      landingName.classList.remove('fixed');
-      landingNav.classList.remove('fixed');
-      aboutSection.classList.remove('active');
-      collapseBtn.classList.remove('active');
     });
   </script>
-
 </body>
 </html>
