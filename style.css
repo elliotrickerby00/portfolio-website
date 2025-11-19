@@ -148,7 +148,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  max-width: 500px;
+  max-width: 750px;
   z-index: 1;
 }
 
