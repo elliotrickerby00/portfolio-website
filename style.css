@@ -270,13 +270,14 @@ body {
   stroke: var(--muted-stroke);
   stroke-width: 1.5px;
   stroke-linecap: round;
-  stroke-dasharray: 1000;
+   
+  /*stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: drawTendril 7s forwards;
 }
 
 /* Staggered animation delays (t1..t12) */
-.t1  { animation-delay: 0s;   }
+/*.t1  { animation-delay: 0s;   }
 .t2  { animation-delay: 0.3s; }
 .t3  { animation-delay: 0.6s; }
 .t4  { animation-delay: 0.1s; }
@@ -293,9 +294,9 @@ body {
 /* -------------------------------
    Keyframes
 --------------------------------*/
-@keyframes drawTendril {
-  to { stroke-dashoffset: 0; }
-}
+/*@keyframes drawTendril {
+  to { stroke-dashoffset: 0; }*/
+} 
 
 @keyframes landingNavFade {
   from {
