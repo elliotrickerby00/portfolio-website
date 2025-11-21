@@ -13,20 +13,44 @@
 </head>
 <body>
   <!-- Tendril Background -->
-  <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
+ <svg class="tendril-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="none">
+  <g class="tendril-wrapper">
     <path class="tendril t1" d="M0,100 C150,80 200,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t2" d="M0,300 C120,250 180,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t3" d="M0,500 C160,450 240,550 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t4" d="M800,100 C650,120 600,200 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t5" d="M800,300 C680,350 620,400 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t6" d="M800,500 C640,500 560,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t7" d="M100,0 C200,150 600,150 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t8" d="M400,0 C350,100 450,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t9" d="M700,0 C650,200 500,250 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t10" d="M100,600 C200,450 600,450 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t11" d="M400,600 C350,500 450,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
+  </g>
+  <g class="tendril-wrapper">
     <path class="tendril t12" d="M700,600 C650,400 500,350 400,300" stroke="#eee" stroke-width="2" fill="transparent"/>
-  </svg>
+  </g>
+</svg>
 
   <!-- Landing Container -->
   <div class="landing-container">
@@ -165,35 +189,22 @@
   });
   </script>
   <!-- Tendril Floating GSAP -->
-  <script>  
-  const tendrils = document.querySelectorAll('.tendril');
+ <script>
+  const tendrilGroups = document.querySelectorAll('.tendril-wrapper');
 
-  // Draw tendrils first
-  gsap.set(tendrils, { strokeDasharray: 1000, strokeDashoffset: 1000 });
-  gsap.to(tendrils, {
-    strokeDashoffset: 0,
-    duration: 7,
-    stagger: 0.1,
-    ease: "power1.out",
-    onComplete: wriggleTendrils
-  });
-
-  function wriggleTendrils() {
-    tendrils.forEach((path, i) => {
-      // Move the path around the screen center
-      gsap.to(path, {
-        x: () => Math.random() * 4 - 2,  // ±2px horizontal
-        y: () => Math.random() * 4 - 2,  // ±2px vertical
-        rotation: () => Math.random() * 4 - 2, // ±2deg rotation
-        transformOrigin: "400px 300px", // SVG center (adjust if your viewBox changes)
-        yoyo: true,
-        repeat: -1,
-        duration: 2 + Math.random(), // small variation in speed
-        ease: "sine.inOut",
-        stagger: i * 0.05
-      });
+  tendrilGroups.forEach((group, i) => {
+    gsap.to(group, {
+      x: () => Math.random() * 6 - 3,
+      y: () => Math.random() * 6 - 3,
+      rotation: () => Math.random() * 4 - 2,
+      transformOrigin: "400px 300px",
+      yoyo: true,
+      repeat: -1,
+      duration: 2 + Math.random(),
+      ease: "sine.inOut",
+      stagger: i * 0.05
     });
-  }
+  });
 </script>
 </body>
 </html>
