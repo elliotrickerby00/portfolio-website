@@ -108,8 +108,8 @@
     const collapseBtn = document.getElementById('collapseBtn');
     const contactBtn = document.getElementById('contactBtn');
     const contactSection = document.getElementById('contactSection');
-    const instaBtn = document.querySelector ('#social icons a:nth-child(1)');
-    const linkedinBtn = document.querySelector('#social-cons a:nthchild(2)');
+    const instaBtn = document.querySelector('#social-icons a:nth-child(1)');
+    const linkedinBtn = document.querySelector('#social-icons a:nth-child(2)');
 
     aboutBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -124,8 +124,7 @@
       contactBtn.classList.remove('active')
       contactSection.classList.remove('active')
 
-      instaBtn.classList.remove('active');
-      linkedinBtn.classList.remove('active');
+      socialIcons.classList.remove('active');
     });
     
       contactBtn.addEventListener('click', (e) => {
@@ -142,8 +141,7 @@
       aboutSection.classList.remove('active');
       aboutBtn.classList.remove('active');
 
-      instaBtn.classList.add('active');
-      linkedinBtn.classList.add('active');
+      socialIcons.classList.add('active');
     });
     
    // Collapse abt section
@@ -159,8 +157,7 @@
     aboutBtn.classList.remove('active');
     contactBtn.classList.remove('active');  
 
-    instaBtn.classList.remove('active');
-    linkedInBtn.classList.remove('active');
+    socialIcons.classList.remove('active')
     
     collapseBtn.classList.remove('active'); // hide collapse button
   });
