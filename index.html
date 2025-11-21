@@ -89,9 +89,13 @@
       e.preventDefault();
       landingName.classList.add('fixed');
       landingNav.classList.add('fixed');
+     
       aboutSection.classList.add('active');
+     
       collapseBtn.classList.add('active');
-      aboutBtn.classList.add('active');
+      
+      aboutBtn.classList.add('active');     
+      contactSection.classList.remove('active')
     });
     
       contactBtn.addEventListener('click', (e) => {
