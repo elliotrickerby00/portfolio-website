@@ -188,37 +188,55 @@ function buildPath(points) {
 }
 
 // Wriggle animation function
-function wriggleTendril(path, points) {
-  // assign unique speeds and offsets for subtle organic motion
+function wriggleTendril(points, path) {
   const speed1 = 0.8 + Math.random() * 0.6;
   const speed2 = 0.8 + Math.random() * 0.6;
   const offset1 = Math.random() * Math.PI * 2;
   const offset2 = Math.random() * Math.PI * 2;
-  const amplitude = 20 + Math.random() * 15; // subtle, varied wiggle
 
   gsap.ticker.add(() => {
     const t = performance.now() / 1000;
-
-    // control1 wriggle
     points.control1[0] += Math.sin(t * speed1 + offset1) * 0.5;
     points.control1[1] += Math.cos(t * speed1 + offset1) * 0.5;
-
-    // control2 wriggle
     points.control2[0] += Math.sin(t * speed2 + offset2) * 0.5;
     points.control2[1] += Math.cos(t * speed2 + offset2) * 0.5;
-
     path.setAttribute("d", buildPath(points));
   });
 }
 
-// Apply wriggle after initial growth (CSS animation delay)
-setTimeout(() => {
-  tendrils.forEach(path => {
-    const points = parsePath(path);
-    if (!points) return;
-    wriggleTendril(path, points);
+// Animate tendrils
+tendrils.forEach(path => {
+  const points = parsePath(path);
+  if (!points) return;
+
+  // Store original control points for wriggle reference
+  const baseControl1 = [...points.control1];
+  const baseControl2 = [...points.control2];
+
+  // Animate control points from start to center
+  const duration = 2 + Math.random() * 2; // slightly varied duration
+  gsap.to(points.control1, {
+    x: points.control1[0], // already set
+    y: points.control1[1],
+    duration: duration,
+    onUpdate: () => path.setAttribute("d", buildPath(points)),
   });
-}, 7000); // match the grow-to-center animation
+
+  gsap.to(points.control2, {
+    x: points.control2[0],
+    y: points.control2[1],
+    duration: duration,
+    onUpdate: () => path.setAttribute("d", buildPath(points)),
+    onComplete: () => {
+      // Start wriggling immediately after growth
+      points.control1 = baseControl1;
+      points.control2 = baseControl2;
+      wriggleTendril(points, path);
+    }
+  });
+});
+</script>
+
 </script>
 
 
