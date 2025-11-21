@@ -51,7 +51,7 @@
     <nav class="landing-nav" id="landingNav">
       <a href="#" id="aboutBtn">About</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="contact.html">Contact</a>
+      <a href="#" id="contactBtn">Contact</a>
     </nav>
   </div>
 
@@ -82,6 +82,8 @@
     const landingNav = document.getElementById('landingNav');
     const aboutSection = document.getElementById('aboutSection');
     const collapseBtn = document.getElementById('collapseBtn');
+    const contactBtn = document.getElementById('contactBtn');
+    const contactSection = document.getElementBy Id('contactSection');
 
     aboutBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -91,14 +93,35 @@
       collapseBtn.classList.add('active');
       aboutBtn.classList.add('active');
     });
+    
+      contactBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       
+      landingName.classList.add('fixed');
+      landingNav.classList.add('fixed');
+      
+      contactSection.classList.add('active');
+      collapseBtn.classList.add('active');
+      
+      contactBtn.classList.add('active');
+
+      aboutSection.classList.remove('active');
+        aboutBtn,classlist.remove('active');
+    });
+    
    // Collapse abt section
     collapseBtn.addEventListener('click', (e) => {
     e.preventDefault();
+  
     landingName.classList.remove('fixed');
     landingNav.classList.remove('fixed');
+    
     aboutSection.classList.remove('active');
+    contactSection.classList.remove('active')
+    
     aboutBtn.classList.remove('active');
+    contactBtn.classList.remove('active');  
+    
     collapseBtn.classList.remove('active'); // hide collapse button
   });
   </script>
