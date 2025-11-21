@@ -242,7 +242,7 @@ body {
 .icon-btn .icon {
     width: 26px;
     height: 26px;
-    fill: var(--text-color);
+    fill: #000;
     opacity: 0.75;
     transition: opacity 0.25s ease, transform 0.25s ease;
 }
