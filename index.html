@@ -99,6 +99,9 @@
   </a>
 </div>  
   
+  <!-- GSAP Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
   <!-- JavaScript -->
   <script>
     const aboutBtn = document.getElementById('aboutBtn');
@@ -160,6 +163,31 @@
     
     collapseBtn.classList.remove('active'); // hide collapse button
   });
+  </script>
+  <script>
+  <!-- Tendril Floating GSAP -->
+  const tendrils = document.querySelectorAll('.tendril');
+ 
+  gsap.set(tendrils, { strokeDasharray: 1000, strokeDashoffset: 1000 }); // reset
+  gsap.to(tendrils, {
+    strokeDashoffset: 0,
+    duration: 7,
+    stagger: 0.1,
+    ease: "power1.out",
+    onComplete: startFloating  
+  });
+  // Function for subtle floating/twisting
+  function startFloating() {
+    gsap.to(tendrils, {
+      rotation: 2,               // very subtle twist (±2deg)
+      transformOrigin: "50% 50%",// pivot at center
+      yoyo: true,                // back-and-forth motion
+      repeat: -1,                // loop forever
+      duration: 3,               // slow oscillation
+      ease: "sine.inOut",
+      stagger: 0.1               // stagger start times for organic feel
+    });
+  }
   </script>
 </body>
 </html>
