@@ -186,48 +186,63 @@ function buildPath(points) {
   return `M${points.start.join(",")} C${points.control1.join(",")} ${points.control2.join(",")} ${points.end.join(",")}`;
 }
 
-// Animate growth + wriggle
+// Animate each tendril
 tendrils.forEach((path, i) => {
   const length = path.getTotalLength();
   path.style.strokeDasharray = length;
   path.style.strokeDashoffset = length;
 
-  // Parse original points
   const points = parsePath(path);
   if (!points) return;
 
-  // Store base control points
+  // Keep base control points
   const baseC1 = [...points.control1];
   const baseC2 = [...points.control2];
 
   // Animate growth first
   gsap.to(path, {
     strokeDashoffset: 0,
-    duration: 1 + Math.random(), // 1–2s
+    duration: 1 + Math.random(), // 1–2s fast growth
     ease: "power1.inOut",
-    delay: i * 0.2, // stagger
+    delay: i * 0.2, // stagger start times
     onComplete: () => {
-      // Start wriggle for this path
-      gsap.to({x:0, y:0}, {
-        x: () => Math.random() * 20 - 10,
-        y: () => Math.random() * 20 - 10,
-        duration: 1.5 + Math.random() * 1.5,
+      // Start subtle wriggle for this path
+
+      // Separate offsets for control1 and control2
+      let c1Offset = { x: 0, y: 0 };
+      let c2Offset = { x: 0, y: 0 };
+
+      // Animate control1
+      gsap.to(c1Offset, {
+        x: () => Math.random() * 8 - 4,
+        y: () => Math.random() * 8 - 4,
+        duration: 1.2 + Math.random() * 1.5,
         yoyo: true,
         repeat: -1,
         ease: "sine.inOut",
-        onUpdate: function() {
-          // Update points relative to base
-          points.control1[0] = baseC1[0] + this.x;
-          points.control1[1] = baseC1[1] + this.y;
-          points.control2[0] = baseC2[0] + this.x;
-          points.control2[1] = baseC2[1] + this.y;
+        onUpdate: () => {
+          points.control1[0] = baseC1[0] + c1Offset.x;
+          points.control1[1] = baseC1[1] + c1Offset.y;
+          points.control2[0] = baseC2[0] + c2Offset.x;
+          points.control2[1] = baseC2[1] + c2Offset.y;
           path.setAttribute("d", buildPath(points));
         }
+      });
+
+      // Animate control2 independently
+      gsap.to(c2Offset, {
+        x: () => Math.random() * 8 - 4,
+        y: () => Math.random() * 8 - 4,
+        duration: 1.2 + Math.random() * 1.5,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
       });
     }
   });
 });
 </script>
+
 
 </body>
 </html>
