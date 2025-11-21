@@ -166,7 +166,7 @@
   </script>
   
 <!-- GSAP Tendril Animation -->
-<!-- GSAP Tendril Animation -->
+
 <script>
 const tendrils = document.querySelectorAll(".tendril");
 
@@ -186,50 +186,48 @@ function buildPath(points) {
   return `M${points.start.join(",")} C${points.control1.join(",")} ${points.control2.join(",")} ${points.end.join(",")}`;
 }
 
-// Staggered growth timeline
-const tl = gsap.timeline();
-
+// Animate growth + wriggle
 tendrils.forEach((path, i) => {
   const length = path.getTotalLength();
-
   path.style.strokeDasharray = length;
   path.style.strokeDashoffset = length;
 
-  // Animate growth faster (1–2s)
-  tl.to(path, {
+  // Parse original points
+  const points = parsePath(path);
+  if (!points) return;
+
+  // Store base control points
+  const baseC1 = [...points.control1];
+  const baseC2 = [...points.control2];
+
+  // Animate growth first
+  gsap.to(path, {
     strokeDashoffset: 0,
     duration: 1 + Math.random(), // 1–2s
-    ease: "power1.inOut"
-  }, i * 0.2); // stagger start times slightly
-});
-
-// After growth finishes, start wriggle for each tendril
-tl.eventCallback("onComplete", () => {
-  tendrils.forEach(path => {
-    const points = parsePath(path);
-    if (!points) return;
-
-    gsap.to(points.control1, {
-      x: `+=${Math.random() * 20 - 10}`,
-      y: `+=${Math.random() * 20 - 10}`,
-      duration: 1.2 + Math.random() * 1.5,
-      yoyo: true,
-      repeat: -1,
-      ease: "sine.inOut",
-      onUpdate: () => path.setAttribute("d", buildPath(points))
-    });
-
-    gsap.to(points.control2, {
-      x: `+=${Math.random() * 20 - 10}`,
-      y: `+=${Math.random() * 20 - 10}`,
-      duration: 1.2 + Math.random() * 1.5,
-      yoyo: true,
-      repeat: -1,
-      ease: "sine.inOut",
-      onUpdate: () => path.setAttribute("d", buildPath(points))
-    });
+    ease: "power1.inOut",
+    delay: i * 0.2, // stagger
+    onComplete: () => {
+      // Start wriggle for this path
+      gsap.to({x:0, y:0}, {
+        x: () => Math.random() * 20 - 10,
+        y: () => Math.random() * 20 - 10,
+        duration: 1.5 + Math.random() * 1.5,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
+        onUpdate: function() {
+          // Update points relative to base
+          points.control1[0] = baseC1[0] + this.x;
+          points.control1[1] = baseC1[1] + this.y;
+          points.control2[0] = baseC2[0] + this.x;
+          points.control2[1] = baseC2[1] + this.y;
+          path.setAttribute("d", buildPath(points));
+        }
+      });
+    }
   });
 });
 </script>
+
 </body>
 </html>
